@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/bootstrap.min.css" />
+    <link rel="stylesheet" href="style/main.css" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Be+Vietnam+Pro:wght@400;500;700&family=Cairo:wght@300;400;700&family=Great+Vibes&family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Overpass:wght@100;300;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Raleway:wght@400;700&family=Roboto:wght@300;400;500;700;900&family=Spline+Sans:wght@300;400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Rock|Paper|Scissors</title>
+  </head>
+  <body>
+    <div class="d-flex align-items-center flex-column">
+      <div
+        class="title d-flex py-3 justify-content-between px-4 align-items-center"
+      >
+        <img
+          src="https://rock-paper-scissors-kj.netlify.app/images/logo.svg"
+          alt="logo"
+          class="logo"
+        />
+        <div class="score text-center bg-white px-5 py-1">
+          <strong>score</strong>
+          <h1 id="score">0</h1>
+        </div>
+      </div>
+      <div class="easy-hard d-flex align-items-center mt-4">
+        <h2>EASY</h2>
+        <div class="toggler" id="toggler" style="cursor: pointer">
+          <div class="btn" id="btn"></div>
+        </div>
+        <h2>HARD</h2>
+      </div>
+    </div>
+    <div class="rules-map position-fixed" id="rules-map">
+      <div class="d-flex align-items-center flex-column">
+        <div>
+          <div
+            class="d-flex justify-content-between align-items-center py-2 pb-4"
+          >
+            <h1>RULES</h1>
+            <img
+              src="https://rock-paper-scissors-kj.netlify.app/images/icon-close.svg"
+              alt=""
+              id="close-rules-map"
+              style="cursor: pointer"
+            />
+          </div>
+          <img
+            src="https://rock-paper-scissors-kj.netlify.app/images/image-rules.svg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="menu" id="menu">
+      <img
+        src="https://rock-paper-scissors-kj.netlify.app/images/bg-triangle.svg"
+        alt=""
+      />
+      <div class="weapons paper" onclick="game(`paper`)">
+        <div>
+          <img
+            src="https://rock-paper-scissors-kj.netlify.app/images/icon-paper.svg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="weapons scissors" onclick="game(`scissors`)">
+        <div>
+          <img
+            src="https://rock-paper-scissors-kj.netlify.app/images/icon-scissors.svg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="weapons rock" onclick="game(`rock`)">
+        <div>
+          <img
+            src="https://rock-paper-scissors-kj.netlify.app/images/icon-rock.svg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="result justify-content-between align-items-center flex-wrap"
+      id="result"
+    >
+      <div
+        class="d-flex flex-column align-items-center you-father"
+        style="gap: 20px"
+      >
+        <h2 class="text-white fw-bold fs-4" style="letter-spacing: 2px">
+          YOU PICKED
+        </h2>
+        <div class="you" id="you" style="z-index: -1 !important">
+          <img
+            src="https://rock-paper-scissors-kj.netlify.app/images/icon-rock.svg"
+            alt=""
+            class="w-50"
+            id="img-you"
+          />
+        </div>
+      </div>
+      <div class="text-center who-win">
+        <h2 class="text-white fw-bold mb-4" id="refree">DRAW</h2>
+        <button class="return" onclick="playNow()" id="play-again">
+          PLAY AGAIN
+        </button>
+      </div>
+      <div
+        class="d-flex flex-column align-items-center opponent-father"
+        style="gap: 20px"
+      >
+        <h2 class="text-white fw-bold fs-4" style="letter-spacing: 2px">
+          THE HOUSE PICKED
+        </h2>
+        <div class="opponent" id="opponent" style="z-index: -1 !important">
+          <img
+            src="https://rock-paper-scissors-kj.netlify.app/images/icon-scissors.svg"
+            class="w-50"
+            id="img-opponent"
+          />
+        </div>
+      </div>
+    </div>
+    <button class="rules" id="rules" style="letter-spacing: 2">RULES</button>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
